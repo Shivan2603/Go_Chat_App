@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Futuristic Chat App</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+  <div class="container">
+    <ul id="messages">
+      <li *ngFor="let message of messages" class="message">
+        <span [innerHTML]="isSystemMessage(message)"></span>
+      </li>
+    </ul>
+    <form action="" class="chat-form">
+      <input [(ngModel)]="chatBox" [ngModelOptions]="{standalone: true}" autocomplete="off" class="chat-input" />
+      <button (click)="send()" class="send-button">Send</button>
+    </form>
+  </div>
+</body>
+</html>
+
+<style>
+  body {
+    background-color: #0f0f0f;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+
+  .container {
+    width: 80%;
+    max-width: 600px;
+    padding: 20px;
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .message {
+    list-style: none;
+    margin-bottom: 10px;
+  }
+
+  .chat-form {
+    display: flex;
+    margin-top: 20px;
+  }
+
+  .chat-input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+    font-size: 16px;
+    margin-right: 10px;
+  }
+
+  .send-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #1976d2;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .send-button:hover {
+    background-color: #125699;
+  }
+</style>
